@@ -13,18 +13,18 @@ public class App {
         ItemRepository repository = new ItemRepository();
         ItemService service = new ItemService(repository);
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         System.out.println("=== Campus Lost-and-Found ===");
 
         System.out.print("Enter item ID: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = Integer.parseInt(input.nextLine());
 
         System.out.print("Enter item name: ");
-        String name = scanner.nextLine();
+        String name = input.nextLine();
 
         System.out.print("Enter item description: ");
-        String description = scanner.nextLine();
+        String description = input.nextLine();
 
         Item item = new Item(id, name, description);
 
@@ -42,6 +42,6 @@ public class App {
             );
         }
 
-        scanner.close();
+        input.close();
     }
 }
