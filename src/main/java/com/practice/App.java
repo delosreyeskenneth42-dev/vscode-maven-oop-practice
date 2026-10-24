@@ -22,8 +22,8 @@ public class App {
         System.out.print("Choose: ");
 
         try {
-            int val = Integer.parseInt(input.nextLine());
-            return val;
+            int choice = Integer.parseInt(input.nextLine());
+            return choice;
         } catch (NumberFormatException e) {
             System.out.println("Only input Integers!");
             return -1;
@@ -62,14 +62,18 @@ public class App {
                         System.out.println("Name: " + item.getName());
                         System.out.println("Description: " + item.getDescription());
 
-                    } catch (IllegalArgumentException exception) {
+                    } catch (IllegalArgumentException e) {
                         System.out.println(
-                                "Could not register item: " + exception.getMessage());
+                                "Could not register item: " + e.getMessage());
                     }
                     break;
                 case 2:
                     List<Item> items = service.getAllItems();
 
+                    if(items.isEmpty()){
+                        System.out.println("No items have been registered yet!");
+                        break;
+                    }
                     for (Item i : items) {
                         System.out.println("ID: " + i.getId());
                         System.out.println("Name: " + i.getName());
