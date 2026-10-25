@@ -14,6 +14,7 @@ public class App {
         System.out.println("""
                     1. Register Item
                     2. View All Items
+                    3. Search Item by ID
                     0. Exit
                 """);
     }
@@ -70,7 +71,7 @@ public class App {
                 case 2:
                     List<Item> items = service.getAllItems();
 
-                    if(items.isEmpty()){
+                    if (items.isEmpty()) {
                         System.out.println("No items have been registered yet!");
                         break;
                     }
@@ -79,6 +80,18 @@ public class App {
                         System.out.println("Name: " + i.getName());
                         System.out.println("Description: " + i.getDescription());
                         System.out.println("-------------------------");
+                    }
+                    break;
+                case 3:
+                    System.out.print("Search an ID: ");
+                    int itemId = Integer.parseInt(input.nextLine());
+
+                    Item i = service.getItemById(itemId);
+
+                    if (i == null) {
+                        System.out.println("Item not found!");
+                    } else {
+                        System.out.println(i.getId() + " " + i.getName() + " " + i.getDescription());
                     }
                     break;
                 case 0:

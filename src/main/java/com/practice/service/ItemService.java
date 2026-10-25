@@ -17,14 +17,12 @@ public class ItemService {
     public void registerItem(Item item) {
         if (item == null) {
             throw new IllegalArgumentException(
-                "Item cannot be null."
-            );
+                    "Item cannot be null.");
         }
 
         if (item.getName() == null || item.getName().isBlank()) {
             throw new IllegalArgumentException(
-                "Item name cannot be blank."
-            );
+                    "Item name cannot be blank.");
         }
 
         itemRepository.save(item);
@@ -32,5 +30,9 @@ public class ItemService {
 
     public List<Item> getAllItems() {
         return itemRepository.findAll();
+    }
+
+    public Item getItemById(int id) {
+        return itemRepository.findById(id);
     }
 }

@@ -10,10 +10,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import org.junit.Assert;
+
 public class ItemServiceTest {
 
     private ItemRepository repository;
     private ItemService service;
+
+    Item item = new Item(101, "Wallet", "Black leather wallet");
 
     @Before
     public void setUp() {
@@ -55,5 +59,13 @@ public class ItemServiceTest {
         }
 
         assertEquals(0, service.getAllItems().size());
+    }
+
+    @Test
+    public void shouldReturnItemWhenIdExists() {
+        service.registerItem(item);
+
+        Item r = service.getItemById(101);
+        Assert.assertSame(item, r);
     }
 }

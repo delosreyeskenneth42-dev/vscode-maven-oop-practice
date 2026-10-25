@@ -16,4 +16,13 @@ public class ItemRepository {
     public List<Item> findAll() {
         return new ArrayList<>(items);
     }
+
+    public Item findById(int id) {
+        for (int i = 0; i < items.size(); i++) {
+            if (id == items.get(i).getId()) {
+                return items.get(i);
+            }
+        }
+        return null;
+    }
 }
