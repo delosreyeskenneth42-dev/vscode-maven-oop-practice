@@ -68,4 +68,17 @@ public class ItemServiceTest {
         Item r = service.getItemById(101);
         Assert.assertSame(item, r);
     }
+
+    @Test
+    public void shouldUpdateExistingItem(){
+        Item i = new Item(101, "Wallet", "Black leather wallet");
+
+        service.registerItem(i);
+        
+        service.updateItem(101, "Brown Wallet", "Black leather wallet");
+
+        service.getItemById(101);
+
+        Assert.assertEquals("Brown Wallet", i.getName());
+    }
 }

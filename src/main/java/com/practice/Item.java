@@ -20,8 +20,20 @@ public class Item {
     public String getName() {
         return name;
     }
+    public void setName(String name){
+        if(name == null || name.isBlank()){
+            throw new IllegalArgumentException("Name Cannot be empty!");
+        }
+        this.name = name;
+    }
 
     public String getDescription() {
         return description;
+    }
+    public void setDescription(String description){
+        if(description == null || description.isBlank()){
+            throw new IllegalArgumentException("Description cannot be empty!");
+        }
+        this.description = description;
     }
 }

@@ -35,4 +35,14 @@ public class ItemService {
     public Item getItemById(int id) {
         return itemRepository.findById(id);
     }
+
+    public void updateItem(int id, String newName, String newDescription){
+        Item item = itemRepository.findById(id);
+
+        if(item == null){
+            throw new IllegalArgumentException("The ID you search doesn't exist!");
+        }
+        item.setName(newName);
+        item.setDescription(newDescription);
+    }
 }

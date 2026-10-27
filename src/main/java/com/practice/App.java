@@ -15,6 +15,7 @@ public class App {
                     1. Register Item
                     2. View All Items
                     3. Search Item by ID
+                    4. Update Item
                     0. Exit
                 """);
     }
@@ -92,6 +93,23 @@ public class App {
                         System.out.println("Item not found!");
                     } else {
                         System.out.println(i.getId() + " " + i.getName() + " " + i.getDescription());
+                    }
+                    break;
+                case 4:
+                    System.out.print("Enter ID to update: ");
+                    int searchId = Integer.parseInt(input.nextLine());
+
+                    System.out.print("Enter new name: ");
+                    String newName = input.nextLine();
+
+                    System.out.print("Enter new description: ");
+                    String newDescription = input.nextLine();
+
+                    try{
+                        service.updateItem(searchId, newName, newDescription);
+                    System.out.println("Update Item Succesfully!");
+                    }catch(IllegalArgumentException e){
+                        System.out.println(e.getMessage());
                     }
                     break;
                 case 0:
