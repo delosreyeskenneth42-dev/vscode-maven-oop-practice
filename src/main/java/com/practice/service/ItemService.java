@@ -45,4 +45,8 @@ public class ItemService {
         item.setName(newName);
         item.setDescription(newDescription);
     }
+
+    public boolean deleteItem(int id){
+        return itemRepository.deleteById(id);
+    }
 }

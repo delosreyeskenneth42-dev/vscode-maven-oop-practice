@@ -16,6 +16,7 @@ public class App {
                     2. View All Items
                     3. Search Item by ID
                     4. Update Item
+                    5. Delete Item
                     0. Exit
                 """);
     }
@@ -110,6 +111,16 @@ public class App {
                     System.out.println("Update Item Succesfully!");
                     }catch(IllegalArgumentException e){
                         System.out.println(e.getMessage());
+                    }
+                    break;
+                case 5:
+                    System.out.print("Enter item ID to delete: ");
+                    int deleteId = Integer.parseInt(input.nextLine());
+
+                    if(service.deleteItem(deleteId)){
+                        System.out.println("ID #" + deleteId + " Deleted succesfully!");
+                    }else{
+                        System.out.println("Item not Found!");
                     }
                     break;
                 case 0:

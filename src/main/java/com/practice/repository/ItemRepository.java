@@ -25,4 +25,15 @@ public class ItemRepository {
         }
         return null;
     }
+
+    public boolean deleteById(int id){
+        Item i = findById(id);
+
+        if(i == null){
+            return false;
+        }
+        items.remove(i);
+
+        return true;
+    }
 }
